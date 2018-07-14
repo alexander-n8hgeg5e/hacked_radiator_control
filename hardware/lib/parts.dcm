@@ -42,6 +42,11 @@ K AVR 8bit Microcontroller MegaAVR LCD PicoPower
 F http://www.atmel.com/images/atmel-8284-8-bit-avr-microcontroller-atmega169a_pa_329a_pa_3290a_pa_649a_p_6490a_p_datasheet.pdf
 $ENDCMP
 #
+$CMP BATT-
+D GROUND power-flag symbol
+K Power Flag Symbol
+$ENDCMP
+#
 $CMP BSS138
 D 50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23
 K N-Channel MOSFET Logic Level
@@ -52,9 +57,39 @@ $CMP C
 D Unpolarized capacitor
 $ENDCMP
 #
+$CMP Conn_01x04
+D Generic connector, single row, 01x04
+K connector
+F ~
+$ENDCMP
+#
+$CMP Conn_02x03_Top_Bottom
+D Generic connector, double row, 02x03, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins)
+K connector
+F ~
+$ENDCMP
+#
 $CMP Crystal
 D Two pin crystal
 K Quartz, Ceramic, Filter, Resonator
+$ENDCMP
+#
+$CMP LTV-356T
+D DC Optocoupler, Vce 80V, CTR 50%, SO-4
+K NPN DC Optocoupler
+F http://optoelectronics.liteon.com/upload/download/DS70-2001-010/S_110_LTV-356T%2020140520.pdf
+$ENDCMP
+#
+$CMP LTV-357T
+D DC Optocoupler, Vce 35V, CTR 50%, SO-4
+K NPN DC Optocoupler
+F https://www.buerklin.com/medias/sys_master/download/download/h91/ha0/8892020588574.pdf
+$ENDCMP
+#
+$CMP LTV-358T
+D DC Optocoupler, Vce 120V, CTR 50%, SO-4
+K NPN DC Optocoupler
+F http://optoelectronics.liteon.com/upload/download/DS70-2001-022/S_110_LTV-358T%2020140520.pdf
 $ENDCMP
 #
 $CMP PHOTORESISTOR
@@ -70,9 +105,32 @@ D Transistor P-MOSFET (general)
 K pmos p-mos p-mosfet transistor
 $ENDCMP
 #
+$CMP Test_pin_row_4p
+D Generic connector, single row, 01x04
+K connector
+F ~
+$ENDCMP
+#
+$CMP Testpins_3x2
+D Generic connector, double row, 02x03, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins)
+K connector
+F ~
+$ENDCMP
+#
 $CMP ZENER
 D Diode zener
 K DEV DIODE
+$ENDCMP
+#
+$CMP ZENER_or_so
+D Diode zener
+K DEV DIODE
+$ENDCMP
+#
+$CMP photo_thing
+D DC Optocoupler, Vce 80V, CTR 50%, SO-4
+K NPN DC Optocoupler
+F http://optoelectronics.liteon.com/upload/download/DS70-2001-010/S_110_LTV-356T%2020140520.pdf
 $ENDCMP
 #
 #End Doc Library
