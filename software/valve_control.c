@@ -22,19 +22,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define MYUBRR FOSC/16/BAUD-1
 void init_io(void)
 {
-  //DDRD = 0b11111111;
-  DDRE = 0b11000000; // motor 
-
+// port e 2: "1" increment sensor led output
+// port e 6,7 : "1" motor control output
+// port e 5 : "0" setup increment photo transistor as input
+  DDRE = 0b11000010;
+  DDRD = 0b00100000;
 }
 
 void USART_Init( unsigned int ubrr)
 {
-/* Set baud rate */
 UBRR0H = (unsigned char)(ubrr>>8);
 UBRR0L = (unsigned char)ubrr;
-/* Enable receiver and transmitter */
 UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-/* Set frame format: 8data, 2stop bit */
 UCSR0C = (1<<USBS0)|(3<<UCSZ00);
 }
 
@@ -44,41 +43,8 @@ int main(void)
         USART_Init(MYUBRR)
 	while (1)
 	{
-	        int d = 10;	
-		_delay_ms(d);
-		PORTE = 0b01111111;
-		_delay_ms(d);
-		PORTE = 0b00111111;
-		_delay_ms(d);
 		PORTE = 0b10111111;
-	        d = 20;	
-		_delay_ms(d);
-		PORTE = 0b01111111;
-		_delay_ms(d);
-		PORTE = 0b00111111;
-		_delay_ms(d);
-		PORTE = 0b10111111;
-	        d = 50;	
-		_delay_ms(d);
-		PORTE = 0b01111111;
-		_delay_ms(d);
-		PORTE = 0b00111111;
-		_delay_ms(d);
-		PORTE = 0b10111111;
-	        d = 80;	
-		_delay_ms(d);
-		PORTE = 0b01111111;
-		_delay_ms(d);
-		PORTE = 0b00111111;
-		_delay_ms(d);
-		PORTE = 0b10111111;
-	        d = 90;	
-		_delay_ms(d);
-		PORTE = 0b01111111;
-		_delay_ms(d);
-		PORTE = 0b00111111;
-		_delay_ms(d);
-		PORTE = 0b10111111;
+		PORTD = 
 	}
 
 	return 0;
