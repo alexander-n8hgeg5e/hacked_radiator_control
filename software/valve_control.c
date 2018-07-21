@@ -23,28 +23,53 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 void init_io(void)
 {
 // port e 2: "1" increment sensor led output
-// port e 6,7 : "1" motor control output
-// port e 5 : "0" setup increment photo transistor as input
-  DDRE = 0b11000010;
-  DDRD = 0b00100000;
-}
+int pe_o_sensor_power_port_bitmask = 1 << 2 ;
 
-void USART_Init( unsigned int ubrr)
-{
-UBRR0H = (unsigned char)(ubrr>>8);
-UBRR0L = (unsigned char)ubrr;
-UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-UCSR0C = (1<<USBS0)|(3<<UCSZ00);
+// port e 6,7 : "1" motor control output
+int pe_o_motor_left_port_bitmask  = 1 << 6 ; 
+int pe_o_motor_right_port_bitmask = 1 << 7 ;
+
+// port e 5 : "0" setup increment photo transistor as input
+int pe_i_sensor_port_bitmask = 1 << 5 ;
+
+//grey cable is sensor forwarding output
+//is port c2
+int pc_o_sensor_out_bitmask = 0b00000100;
+
+
+//port init
+  //to write whole port at once, need the vars for this
+  int write;
+  int output;
+
+
+  // port e
+  output = pe_o_sensor_power_port_bitmask || pe_o_motor_left_port_bitmask || pe_o_motor_right_port_bitmask ; 
+  DDRE = 0b00000000 || output; // if not output -> input
+  porte = output; //set outputs high, no more tristate
+  // port c
+  output = pc_o_sensor_out_bitmask ;
+  DDRC = 0b00000000 || output; //if not output -> input 
+  portc = output; //set outputs high, no more tristate
+ 
+
 }
 
 int main(void)
 {
 	init_io();
-        USART_Init(MYUBRR)
 	while (1)
 	{
-		PORTE = 0b10111111;
-		PORTD = 
+      // port e
+      // sensor power high
+	  write = pe_o_sensor_power_port_bitmask ;
+	  // motor left signal low
+	  write =   !write   || pe_o_motor_left_port_bitmask ;
+      //write port
+	  porte = write;
+      
+	  //port c
+      write =  pc_o_sensor_out_bitmask && ( pe_i_sensor_port_bitmask && porte ) ;
 	}
 
 	return 0;
