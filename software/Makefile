@@ -7,3 +7,4 @@ ISP_PROG   = stk500v1
 ISP_PORT   = /dev/ttyACM0
 AVRDUDE_ISP_BAUDRATE = 19200
 include ~/code/arduino/Arduino-Makefile/Arduino.mk
+AVRDUDE_OPTS = -v

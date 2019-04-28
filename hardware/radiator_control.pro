@@ -1,4 +1,4 @@
-update=Mo 16 Jul 2018 15:27:03 CEST
+update=So 15 Jul 2018 01:54:42 CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -35,8 +37,7 @@ SpiceUseNetNumbers=0
 LabSize=60
 [eeschema]
 version=1
-LibDir=lib
+LibDir=../../../../../code/hacked_radiator_control/hardware/lib;../../../../../code/kicad4_lib
 [eeschema/libraries]
 LibName1=parts
-[general]
-version=1
+LibName2=/home/esadman/code/kicad4_lib/power

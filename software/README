@@ -1,3 +1,6 @@
 program is in pre birth state
+
+needs this: https://github.com/sudar/Arduino-Makefile.git
+
 flashing with: make ispload
 

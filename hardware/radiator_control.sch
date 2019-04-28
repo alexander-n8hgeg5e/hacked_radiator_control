@@ -1,5 +1,6 @@
 EESchema Schematic File Version 2
 LIBS:parts
+LIBS:power
 LIBS:radiator_control-cache
 EELAYER 25 0
 EELAYER END
@@ -96,8 +97,8 @@ $Comp
 L Conn_01x29 J1
 U 1 1 5B49E957
 P 4850 7650
-F 0 "J1" V 4850 9150 50  0000 C CNN
-F 1 "Conn_01x29" V 4850 5950 50  0000 C CNN
+F 0 "J1" H 4850 9150 50  0000 C CNN
+F 1 "Conn_01x29" H 4850 6150 50  0000 C CNN
 F 2 "" H 4850 7650 50  0001 C CNN
 F 3 "" H 4850 7650 50  0001 C CNN
 	1    4850 7650
@@ -400,7 +401,7 @@ F 3 "" H 3200 3800 50  0001 C CNN
 	1    3200 3800
 	-1   0    0    1   
 $EndComp
-Text Label 9550 5050 0    60   ~ 0
+Text Label 10050 3900 0    60   ~ 0
 VSS
 Text Label 3550 3600 0    60   ~ 0
 VSS
@@ -754,7 +755,6 @@ NoConn ~ 4200 4350
 NoConn ~ 4200 4250
 NoConn ~ 4200 3850
 NoConn ~ 4200 3650
-NoConn ~ 4200 5050
 NoConn ~ 4200 5150
 NoConn ~ 4200 4850
 NoConn ~ 4200 4750
@@ -781,6 +781,91 @@ F 3 "" H 10700 5600 50  0001 C CNN
 	1    10700 5600
 	1    0    0    -1  
 $EndComp
+$Comp
+L BATT- #PWR05
+U 1 1 5B4B8349
+P 9850 2050
+F 0 "#PWR05" H 9850 1800 50  0001 C CNN
+F 1 "BATT-" H 9850 1900 50  0000 C CNN
+F 2 "" H 9850 2050 50  0001 C CNN
+F 3 "" H 9850 2050 50  0001 C CNN
+	1    9850 2050
+	1    0    0    -1  
+$EndComp
+Text Label 9050 6350 2    60   ~ 0
+lcd8
+Text Label 9050 6250 2    60   ~ 0
+lcd9
+Text Label 9050 6150 2    60   ~ 0
+lcd10
+Text Label 9050 6050 2    60   ~ 0
+lcd11
+Text Label 9050 5950 2    60   ~ 0
+lcd12
+Text Label 9050 5850 2    60   ~ 0
+lcd13
+Text Label 9050 5750 2    60   ~ 0
+lcd14
+Text Label 9050 5650 2    60   ~ 0
+lcd15
+Text Label 9050 5550 2    60   ~ 0
+lcd16
+Text Label 9050 5450 2    60   ~ 0
+lcd17
+Text Label 9050 5250 2    60   ~ 0
+lcd19
+Text Label 9050 5150 2    60   ~ 0
+lcd20
+Text Label 9050 5050 2    60   ~ 0
+lcd21
+Text Label 9050 4950 2    60   ~ 0
+lcd22
+Text Label 9050 4850 2    60   ~ 0
+lcd23
+Text Label 9050 4750 2    60   ~ 0
+lcd24
+Text Label 9050 4650 2    60   ~ 0
+lcd25
+Text Label 9400 6300 0    60   ~ 0
+black
+Text Label 9400 6100 0    60   ~ 0
+white
+Text Label 9400 5900 0    60   ~ 0
+blue
+Text Label 9400 5700 0    60   ~ 0
+yellow
+Text Label 9400 5500 0    60   ~ 0
+red
+Text Label 9400 5300 0    60   ~ 0
+grey
+Text Label 9400 5100 0    60   ~ 0
+green
+Text Label 9400 4900 0    60   ~ 0
+purple
+Text Label 9400 4700 0    60   ~ 0
+brown
+Text Notes 7800 6350 0    59   ~ 0
+my output wiring,\nsoldered to lcd pads
+Text Notes 9750 6300 0    60   ~ 0
+pd 5,6
+Text Notes 9750 6100 0    60   ~ 0
+pa 3,2
+Text Notes 9750 5900 0    60   ~ 0
+pa 1,0
+Text Notes 9750 5700 0    60   ~ 0
+pd7, pg0\n
+Text Notes 9750 5500 0    60   ~ 0
+pg1, pc0
+Text Notes 9750 5300 0    60   ~ 0
+pc2
+Text Notes 9750 5100 0    60   ~ 0
+pc 3,4
+Text Notes 9750 4900 0    60   ~ 0
+pc 5,6 (did not work)
+Text Notes 9750 4700 0    60   ~ 0
+pc7, pg2
+Text Notes 7800 2600 0    60   ~ 0
+ isp programming\n###########\nSCK : Blue on adapter cable\nMISO : Green\nMOSI : White\n\nReset: lila\n\n
 Wire Wire Line
 	3550 5600 4200 5350
 Wire Wire Line
@@ -915,7 +1000,7 @@ Connection ~ 10700 3650
 Wire Wire Line
 	9550 4000 8650 4000
 Wire Wire Line
-	9550 3000 9550 5050
+	9550 3000 9550 4450
 Wire Wire Line
 	9550 3650 10700 3650
 Connection ~ 8750 4000
@@ -959,7 +1044,6 @@ Wire Wire Line
 	9850 2050 9850 2050
 Connection ~ 9550 850 
 Connection ~ 9550 3650
-Connection ~ 9550 4400
 Wire Wire Line
 	8750 850  8750 3000
 Connection ~ 8750 850 
@@ -1002,9 +1086,6 @@ Wire Wire Line
 	3450 4350 3950 4350
 Wire Wire Line
 	3950 4350 3950 4950
-Wire Wire Line
-	3800 4950 4200 4950
-Connection ~ 3950 4950
 Wire Wire Line
 	3400 4950 3500 4950
 Wire Wire Line
@@ -1060,7 +1141,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 5750 5600 5950
 Wire Wire Line
-	5600 5950 8400 5950
+	5600 5950 7250 5950
 Wire Wire Line
 	3900 2650 4200 2650
 Wire Wire Line
@@ -1167,7 +1248,7 @@ Wire Bus Line
 Wire Bus Line
 	3550 7100 6350 7100
 Wire Wire Line
-	8400 5950 9550 4400
+	7250 5950 7250 4650
 Connection ~ 9550 4000
 Wire Bus Line
 	7000 4650 7000 5550
@@ -1215,15 +1296,127 @@ Wire Bus Line
 	5850 2600 5250 2600
 Wire Wire Line
 	4150 3450 4200 3450
-$Comp
-L BATT- #PWR05
-U 1 1 5B4B8349
-P 9850 2050
-F 0 "#PWR05" H 9850 1800 50  0001 C CNN
-F 1 "BATT-" H 9850 1900 50  0000 C CNN
-F 2 "" H 9850 2050 50  0001 C CNN
-F 3 "" H 9850 2050 50  0001 C CNN
-	1    9850 2050
-	1    0    0    -1  
-$EndComp
+Wire Wire Line
+	9250 6350 9050 6350
+Wire Wire Line
+	9050 6250 9250 6250
+Wire Wire Line
+	9250 6150 9050 6150
+Wire Wire Line
+	9050 6050 9250 6050
+Wire Wire Line
+	9250 5950 9050 5950
+Wire Wire Line
+	9050 5850 9250 5850
+Wire Wire Line
+	9250 5750 9050 5750
+Wire Wire Line
+	9050 5650 9250 5650
+Wire Wire Line
+	9250 5550 9050 5550
+Wire Wire Line
+	9050 5450 9250 5450
+Wire Wire Line
+	9050 5250 9250 5250
+Wire Wire Line
+	9250 5150 9050 5150
+Wire Wire Line
+	9050 5050 9250 5050
+Wire Wire Line
+	9250 6250 9250 6350
+Wire Wire Line
+	9250 6050 9250 6150
+Wire Wire Line
+	9250 5850 9250 5950
+Wire Wire Line
+	9250 5650 9250 5750
+Wire Wire Line
+	9250 5450 9250 5550
+Wire Wire Line
+	9250 5050 9250 5150
+Wire Wire Line
+	9250 5100 9400 5100
+Connection ~ 9250 5100
+Wire Wire Line
+	9250 5300 9400 5300
+Wire Wire Line
+	9250 5500 9400 5500
+Connection ~ 9250 5500
+Wire Wire Line
+	9250 5700 9400 5700
+Connection ~ 9250 5700
+Wire Wire Line
+	9250 5900 9400 5900
+Connection ~ 9250 5900
+Wire Wire Line
+	9250 6100 9400 6100
+Connection ~ 9250 6100
+Wire Wire Line
+	9250 6300 9400 6300
+Connection ~ 9250 6300
+Wire Wire Line
+	10050 3650 10050 3900
+Connection ~ 10050 3650
+Wire Notes Line
+	10250 6450 10250 4500
+Wire Wire Line
+	9250 5250 9250 5300
+Wire Wire Line
+	9250 4950 9050 4950
+Wire Wire Line
+	9050 4850 9250 4850
+Wire Wire Line
+	9250 4850 9250 4950
+Wire Wire Line
+	9250 4900 9400 4900
+Connection ~ 9250 4900
+Wire Wire Line
+	9250 4750 9050 4750
+Wire Wire Line
+	9050 4650 9250 4650
+Wire Wire Line
+	9250 4650 9250 4750
+Wire Wire Line
+	9250 4700 9400 4700
+Connection ~ 9250 4700
+Wire Notes Line
+	10250 4500 8750 4500
+Wire Notes Line
+	8750 4500 8750 6450
+Wire Notes Line
+	8750 6450 10250 6450
+Wire Wire Line
+	7250 4650 8500 4650
+Wire Wire Line
+	8500 4650 8500 4450
+Wire Wire Line
+	8500 4450 9550 4450
+Wire Notes Line
+	6650 3050 7750 2300
+Wire Wire Line
+	3450 4950 3450 5150
+Wire Wire Line
+	3450 5150 4050 5150
+Wire Wire Line
+	4050 5150 4050 5050
+Wire Wire Line
+	4050 5050 4200 5050
+Connection ~ 3450 4950
+Wire Wire Line
+	3800 4950 4200 4950
+Connection ~ 3950 4950
+Wire Notes Line
+	2850 4600 2850 5400
+Wire Notes Line
+	2850 5400 3900 5400
+Wire Notes Line
+	3900 5400 3900 5300
+Wire Notes Line
+	3900 5300 4100 5300
+Wire Notes Line
+	4100 5300 4100 4600
+Wire Notes Line
+	4100 4600 2850 4600
+Text Notes 2950 4750 0    60   ~ 0
+somehow like this\n
 $EndSCHEMATC
